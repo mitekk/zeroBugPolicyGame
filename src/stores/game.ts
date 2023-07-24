@@ -71,15 +71,10 @@ export const useGameStore = defineStore('game', () => {
   }
 
   const reset = () => {
-    score.value.currentItems = initialScore.currentItems
-    score.value.removed = initialScore.removed
-    score.value.result = initialScore.result
-    score.value.color = initialScore.color
-    score.value.isPlaying = initialScore.isPlaying
-    score.value.isWon = initialScore.isWon
-    score.value.isLost = initialScore.isLost
-
-    items.value = initialItems
+    score.value = { ...initialScore }
+    items.value = [...initialItems]
+    stop()
+    start()
   }
 
   watch([() => score.value.removed, () => score.value.currentItems], ([removed, items]) => {
@@ -109,7 +104,7 @@ export const useGameStore = defineStore('game', () => {
   const { start, stop } = useInterval(() => {
     const newItem = createNewItem()
     addItem(newItem)
-  }, 600)
+  }, 700)
 
   return { score, items, addItem, removeItem, reset, stop, start }
 })
