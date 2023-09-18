@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { useGameStore } from '@/stores/game'
+import { storeToRefs } from 'pinia'
 
-const { score } = useGameStore()
+const store = useGameStore()
+const { score } = storeToRefs(store)
 </script>
 
 <template>

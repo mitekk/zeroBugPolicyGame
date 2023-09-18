@@ -22,18 +22,20 @@ const onClick = () => {
 
 <style scoped>
 .waterfallItem-container {
+  height: 3rem;
+  width: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
   border-style: solid;
   border-width: 1px;
   border-color: aliceblue;
   border-radius: 25px;
-  height: 3rem;
-  width: 3rem;
-  justify-content: center;
-  align-items: center;
-  display: flex;
 
   .waterfallItem {
     color: azure;
+    user-select: none;
   }
 }
 </style>
